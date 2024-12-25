@@ -1,0 +1,36 @@
+name: Run TestCafe Tests
+
+# Trigger the workflow on push to main branch or pull requests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use an Ubuntu runner for the job
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Check out the repository code
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Use a specific version of Node.js (can be updated as needed)
+
+    - name: Install dependencies
+      run: npm install  # Install all dependencies listed in package.json
+
+    - name: Run TestCafe tests
+      run: npx testcafe chrome tests/**/*.js --reporter testcafe-reporter-html:report.html
+      # Or you can use the 'testcafe' command directly if installed globally
+
+    - name: Upload TestCafe HTML report
+      uses: actions/upload-artifact@v3
+      with:
+        name: testcafe-report
+        path: report.html  # Upload the generated HTML report as an artifact
