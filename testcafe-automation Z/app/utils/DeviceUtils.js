@@ -1,4 +1,4 @@
-import { Selector, t} from 'testcafe';
+import { Selector, t } from 'testcafe';
 import Device from '../pojo/Device';
 
 /**
@@ -35,9 +35,6 @@ async function compareDevices(devicesUI, devicesAPI) {
         if (apiDevice) {
             const isTypeMatch = apiDevice.type === device.type;
             const isCapacityMatch = apiDevice.hdd_capacity === device.capacity.split(' ')[0];
-            // console.log(`System name match: ${device.name}`);
-            // console.log(`Type match: ${isTypeMatch}`);
-            // console.log(`Capacity match: ${isCapacityMatch}`);
 
             // assertions
             await t.expect(isTypeMatch).ok(`Device ${device.name} type should match`);
@@ -66,7 +63,7 @@ async function createNewDevice(t, device) {
 }
 
 async function checkSingleDeviceExists(devicesUI, newDevice) {
-    for (const device of devicesUI) { 
+    for (const device of devicesUI) {
         if (device.name === newDevice.name && device.type === newDevice.type && device.capacity === newDevice.capacity) {
             return true;
         }

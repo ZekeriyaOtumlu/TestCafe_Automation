@@ -5,6 +5,11 @@ fixture`Ninja RMM Devices Client App`
 
 let devicesUI = [];
 
+/**
+ * Retrieving the list of All the Devices from API
+ * Verify All Devices are display in UI.
+ */
+
 test('Retrieve list of devices from API and verify all devices are present in UI', async t => {
 
     // Retrieve the list of devices through API call
@@ -18,18 +23,15 @@ test('Retrieve list of devices from API and verify all devices are present in UI
 
     // Compare both lists
     compareDevices(devicesUI, devicesAPI);
-
 });
 
 test('Verify that all devices contain the edit and delete buttons', async t => {
     for (const device of devicesUI) {
         const hasEdit = device.hasEdit;
         const hasRemove = device.hasRemove;
-        // console.log(`Device: ${device.name}, Edit: ${hasEdit}, Remove: ${hasRemove}`);
 
         // assert that the device has an edit and remove button
         await t.expect(hasEdit).ok(`Device ${device.name} should have an edit button`);
         await t.expect(hasRemove).ok(`Device ${device.name} should have a remove button`);
     }
 });
-

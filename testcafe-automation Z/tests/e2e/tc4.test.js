@@ -4,6 +4,11 @@ fixture`request`;
 const apiEndpoint = 'http://localhost:3000';
 let l_id, name;
 
+/**
+ * Delete the last device from the list
+ * Verify deleted device is not display in the Device's list
+ */
+
 test('Delete the last device through API call', async t => {
 
     // retrieve the last device from the list
@@ -23,7 +28,7 @@ test('Delete the last device through API call', async t => {
         method: 'DELETE'
     });
 
-    await t.expect(response.body).eql(1);      // verify device deleted successfully
+    await t.expect(response.body).eql(1); // verify device deleted successfully
 });
 
 fixture`Ninja RMM Devices Client App`

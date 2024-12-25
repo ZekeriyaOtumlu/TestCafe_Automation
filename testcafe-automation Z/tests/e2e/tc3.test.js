@@ -4,6 +4,11 @@ fixture`request`;
 const apiEndpoint = 'http://localhost:3000';
 let f_id, f_type, f_capacity, newDeviceName;
 
+/**
+ * Retrieve the first device from the list
+ * Update the Device name as 'Rename Device'
+ */
+
 test('Rename first device through API call', async t => {
 
     // retrieve the first device from the list

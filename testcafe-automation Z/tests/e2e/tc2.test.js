@@ -4,6 +4,12 @@ import Device from '../../app/pojo/Device';
 fixture`Ninja RMM Devices Client App`
     .page`http://localhost:3001`;
 
+/**
+ * Create new Device
+ * Retrieve the list of All devices
+ * Verify the new device display in the list
+ */
+
 test('Create, retrieve and verify new device visibility', async t => {
 
     const newDevice = new Device('Test Device', "MAC", '512 GB', true, true);
