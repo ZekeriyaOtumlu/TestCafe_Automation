@@ -1,0 +1,25 @@
+{
+  "name": "testcafe-automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Automated browser testing with Testcafe",
+  "scripts": {
+    "test": "testcafe chrome tests/e2e/tc1.test.js",
+    "api-tests": "node run-server-tests.js",
+    "ui-tests": "node run-client-tests.js",
+    "start": "node server.js",
+    "clean": "rimraf report.xml report.html"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "rimraf": "^6.0.1",
+    "testcafe": "^3.7.1",
+    "testcafe-reporter-html": "^1.4.6"
+  },
+  "devDependencies": {
+    "eslint-config-react-app": "^7.0.1"
+  }
+}
